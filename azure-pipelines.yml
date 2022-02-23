@@ -70,7 +70,7 @@ stages:
           - task: AzureWebApp@1
             displayName: 'Azure Web App Deploy: '
             inputs:
-              azureSubscription: cyber-devops-ADA Monitoring-abc8c064-680d-4b40-a659-1a5f6340d3a7
+              azureSubscription: $(azureSubscription)
               appType: webAppLinux
               appName: $(webAppName)
               runtimeStack: 'NODE|14-LTS'
