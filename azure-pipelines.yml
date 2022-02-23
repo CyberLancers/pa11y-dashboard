@@ -6,6 +6,20 @@
 trigger:
 - master
 
+variables:
+
+  # Azure Resource Manager connection created during pipeline creation
+  azureSubscription: 'abc8c064-680d-4b40-a659-1a5f6340d3a7'
+
+  # Web app name
+  webAppName: 'cyber-ada-monitoring-21284'
+
+  # Environment name
+  environmentName: 'cyber-ada-monitoring-21284'
+
+  # Agent VM image name
+  vmImageName: 'ubuntu-latest'
+
 stages:
 - stage: Build
   displayName: Build stage
