@@ -1,4 +1,4 @@
-﻿// This file is part of Pa11y Dashboard.
+// This file is part of Pa11y Dashboard.
 //
 // Pa11y Dashboard is free software: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
