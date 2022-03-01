@@ -44,7 +44,7 @@ stages:
   - deployment: Deploy
     displayName: Deploy
     environment: 
-      name: Production
+      name: pa11y-server
       resourceType: VirtualMachine
     pool:
       vmImage: 'Ubuntu-latest'
