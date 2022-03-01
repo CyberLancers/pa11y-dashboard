@@ -6,28 +6,12 @@
 trigger:
 - master
 
-variables:
-
-  # Azure Resource Manager connection created during pipeline creation
-  azureSubscription: 'abc8c064-680d-4b40-a659-1a5f6340d3a7'
-
-  # Web app name
-  webAppName: 'cyber-ada-monitoring-21284'
-
-  # Environment name
-  environmentName: 'cyber-ada-monitoring-21284'
-
-  # Agent VM image name
-  vmImageName: 'ubuntu-latest'
-
 stages:
 - stage: Build
   displayName: Build stage
   jobs:
   - job: Build
     displayName: Build
-    pool:
-      vmImage: $(vmImageName)
 
     steps:
     - task: NodeTool@0
@@ -60,19 +44,13 @@ stages:
   jobs:
   - deployment: Deploy
     displayName: Deploy
-    environment: $(environmentName)
+    environment: 
+      name: Production
+      resourceType: VirtualMachine
     pool:
-      vmImage: $(vmImageName)
+      vmImage: 'Ubuntu-latest'
     strategy:
       runOnce:
         deploy:
           steps:
-          - task: AzureWebApp@1
-            displayName: 'Azure Web App Deploy: '
-            inputs:
-              azureSubscription: $(azureSubscription)
-              appType: webAppLinux
-              appName: $(webAppName)
-              runtimeStack: 'NODE|14-LTS'
-              package: $(Pipeline.Workspace)/drop/$(Build.BuildId).zip
-              startUpCommand: 'npm run start'
+          - script: echo my first deployment
