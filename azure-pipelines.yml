@@ -41,7 +41,7 @@ stages:
   dependsOn: Build
   condition: succeeded()
   jobs:
-  - deployment: Deploy
+  - deployment: Deployment
     displayName: Deploy
     environment: 
       name: pa11y-server
