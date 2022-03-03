@@ -95,6 +95,8 @@ function initApp(config, callback) {
 	require('./route/result/download')(app);
 	if (!config.readonly) {
 		require('./route/new')(app);
+		require('./route/wallboard')(app);
+		require('./route/wallboard-graph')(app);
 		require('./route/task/delete')(app);
 		require('./route/task/run')(app);
 		require('./route/task/edit')(app);
